@@ -19,13 +19,9 @@ public class PersonGraphQLResource{
         /*
          * do something
          * */
-        Person p = new Person();
-        p.setName("name");
-        p.setCivility("civility");
-        p.setDateOfBirth("dateOfBirth");
-        p.setEmail("email");
-        return p;
+        return new Person("name","civility","dateOfBirth","email"); 
     }
+    
     @Mutation
     @Description("create person")
     public String createPerson(@Valid @Name("person") CreatePersonUseCaseInput input) {

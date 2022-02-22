@@ -1,14 +1,7 @@
 package org.acme.graphql.resources;
 
-import java.time.LocalDate;
 
 import org.eclipse.microprofile.graphql.Name;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 
 @Name("Person")
 public class Person {
@@ -16,6 +9,13 @@ public class Person {
     private String dateOfBirth;
     private String email;
     private String civility;
+
+    public Person(String name, String dateOfBirth, String email, String civility) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.email = email;
+        this.civility = civility;
+    }
     public String getName() {
         return name;
     }
