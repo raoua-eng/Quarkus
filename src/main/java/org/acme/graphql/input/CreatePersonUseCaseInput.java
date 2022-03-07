@@ -4,10 +4,9 @@ import java.time.LocalDate;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
-
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +25,7 @@ public class CreatePersonUseCaseInput {
     private LocalDate dateOfBirth;
     @Email(message="email should be valid")
     private String email;
-    @Max(value = 5, message = "{ '${validatedValue}' must be at least {value} characters long. Length found : '${validatedValue.length()}'}")
+    @Size(max = 5, message = "'${validatedValue}' must be at least {max} characters long. Length found : '${validatedValue.length()}'")
     private String civility;
  
 }
