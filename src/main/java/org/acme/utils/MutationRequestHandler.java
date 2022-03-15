@@ -17,6 +17,7 @@ public class MutationRequestHandler {
 		ObjectReader objectReader = objectMapper.readerForUpdating(entity);
 		DataFetchingEnvironment dfe = context.unwrap(DataFetchingEnvironment.class);
 		Map<String, Object> l = dfe.getArgument(targetEntity);
+		System.out.println("arguments>>>>>>>>>>>>>>>>>"+l);
 		T objectUpdated = objectReader.readValue(new JsonObject(l).toString());
 		return objectUpdated;
 	}

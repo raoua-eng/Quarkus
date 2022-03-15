@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,14 +18,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreatePersonUseCaseInput {
-    @NotBlank(message="'${validatedValue}' cannot be null")
+    @NotBlank(message="{graphql.validation.NotBlank.message}")
     private String name;
-    @Past(message="Date must be in past. found '${validatedValue}'")
+    @Past(message="{graphql.validation.Past.message}")
     @JsonbDateFormat(value = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
-    @Email(message="email should be valid")
+    @Email(message="{graphql.validation.Email.message}")
     private String email;
-    @Size(max = 5, message = "'${validatedValue}' must be at least {max} characters long. Length found : '${validatedValue.length()}'")
+    @Max(value = 5, message = "{graphql.validation.Max.message}")
     private String civility;
  
 }

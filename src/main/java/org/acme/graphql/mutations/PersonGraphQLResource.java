@@ -1,7 +1,5 @@
 package org.acme.graphql.mutations;
 
-import java.time.LocalDate;
-import java.util.Date;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -9,6 +7,7 @@ import javax.validation.Valid;
 import org.acme.graphql.input.CreatePersonUseCaseInput;
 import org.acme.graphql.resources.Person;
 import org.acme.service.CreatePersonUseCaseBO;
+import org.acme.utils.LocaleChangeInterceptor;
 import org.acme.utils.MutationRequestHandler;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
@@ -20,13 +19,17 @@ import io.smallrye.graphql.api.Context;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @GraphQLApi
+@LocaleChangeInterceptor
 public class PersonGraphQLResource{
     @Inject
     ObjectMapper objectMapper;
+    @Inject
+    Context context;
 
     @Query
     @Description("find person")
     public Person findPerson(Long id) {
+        System.out.println("Query Context : "+ context);
         /*
          * do something
          * */
@@ -35,7 +38,8 @@ public class PersonGraphQLResource{
     
     @Mutation
     @Description("create person")
-    public String createPerson(Context context,@Valid @Name("person") CreatePersonUseCaseInput input) throws Exception {
+    public String createPerson(@Valid @Name("person") CreatePersonUseCaseInput input) throws Exception {
+        System.out.println("Mutation Context : "+ context);
         /*
          * do something
          * */
