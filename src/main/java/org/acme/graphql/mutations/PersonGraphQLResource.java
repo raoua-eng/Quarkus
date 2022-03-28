@@ -4,6 +4,7 @@ package org.acme.graphql.mutations;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.acme.graphql.input.CreateOrderUseCaseInput;
 import org.acme.graphql.input.CreatePersonUseCaseInput;
 import org.acme.graphql.resources.Person;
 import org.acme.service.CreatePersonUseCaseBO;
@@ -43,9 +44,19 @@ public class PersonGraphQLResource{
         /*
          * do something
          * */
-        CreatePersonUseCaseBO personBO=new CreatePersonUseCaseBO("Raoua",null, "test@test", "M");
-        CreatePersonUseCaseBO objectUpdated = MutationRequestHandler.getObject(context, "person", objectMapper, personBO);
-       System.out.println(objectUpdated.toString());
+        //CreatePersonUseCaseBO personBO=new CreatePersonUseCaseBO("Raoua",null, "test@test", "M");
+       // CreatePersonUseCaseBO objectUpdated = MutationRequestHandler.getObject(context, "person", objectMapper, personBO);
+      // System.out.println(objectUpdated.toString());
+        return "successful creation";
+    }
+
+    @Mutation
+    @Description("create order")
+    public String createOrder(@Valid @Name("order") CreateOrderUseCaseInput input) throws Exception {
+        System.out.println("Mutation Context : "+ context);
+        /*
+         * do something
+         * */
         return "successful creation";
     }
 }
