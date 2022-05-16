@@ -19,7 +19,7 @@ import io.smallrye.graphql.api.Context;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @GraphQLApi
-@LocaleChangeInterceptor
+//@LocaleChangeInterceptor
 public class PersonGraphQLResource{
     @Inject
     ObjectMapper objectMapper;
