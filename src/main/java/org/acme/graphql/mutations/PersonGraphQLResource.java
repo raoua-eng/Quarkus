@@ -7,9 +7,8 @@ import javax.validation.Valid;
 import org.acme.graphql.input.CreateOrderUseCaseInput;
 import org.acme.graphql.input.CreatePersonUseCaseInput;
 import org.acme.graphql.resources.Person;
-import org.acme.service.CreatePersonUseCaseBO;
 import org.acme.utils.LocaleChangeInterceptor;
-import org.acme.utils.MutationRequestHandler;
+import org.acme.utils.security.Secured;
 import org.eclipse.microprofile.graphql.Description;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Mutation;
@@ -27,6 +26,7 @@ public class PersonGraphQLResource{
     @Inject
     Context context;
 
+    @Secured
     @Query
     @Description("find person")
     public Person findPerson(Long id) {
