@@ -1,7 +1,9 @@
 {
-"kty": "oct",
-"use": "sig",
-"kid": "veos-shared-smetric-key",
-"k": "test",
-"alg": "HS256"
+ "keys": [
+   {
+        "kty":"oct",
+        "k": "test",
+        "alg": "HS256"
+   }
+ ]
 }
