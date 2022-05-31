@@ -21,14 +21,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @GraphQLApi
 //@LocaleChangeInterceptor
-@Authenticated
+//@Authenticated
 public class PersonGraphQLResource{
     @Inject
     ObjectMapper objectMapper;
     @Inject
     Context context;
 
-    @Secured
+   // @Secured
     @Query
     @Description("find person")
     public Person findPerson(Long id) {
