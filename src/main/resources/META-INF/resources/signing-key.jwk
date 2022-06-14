@@ -2,7 +2,7 @@
  "keys": [
    {
         "kty":"oct",
-        "k": "test",
+        "k": "dGVzdC50aGUuand0LmtleS5zaWduYXR1cmUuaW4uc3ltZXRyaWMuYWxnbw==",
         "alg": "HS256"
    }
  ]
